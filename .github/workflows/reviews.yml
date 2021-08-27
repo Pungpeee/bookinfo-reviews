@@ -45,4 +45,5 @@ jobs:
             docker build -t ghcr.io/pungpeee/bookinfo-reviews:latest .
             docker images
             docker run -d -p 9080:9080 ghcr.io/pungpeee/bookinfo-reviews:latest
+            docker ps -a
 

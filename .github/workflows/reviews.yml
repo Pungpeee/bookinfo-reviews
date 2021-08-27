@@ -21,6 +21,7 @@ jobs:
           registry: ghcr.io
           username: pungpeee
           password: ${{ secrets.TOKEN_GITHUB__BP }}
+    
       
     - name: Build images
       uses: docker/build-push-action@v2   
@@ -38,7 +39,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
            host: ${{ secrets.HOST }}
-           username: Pungpeee
+           username: pungpeee
            password: ${{ secrets.PASSWORD }}
            script: |
             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest

@@ -48,12 +48,7 @@ jobs:
         with:
            host: ${{ secrets.HOST }}
            username: pungpeee
-           password: ${{ secrets.PASSWORD }}
+           password: ${{ secrets.PASSWORD }}       
            script: |
-              docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-              docker-compose up -d
-              
-              
-#            script: |
-#             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-#             docker run -d -p 9080:9080 -e RATINGS_SERVICE=http://ratings:8080 ghcr.io/pungpeee/bookinfo-reviews:latest
+            docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
+            docker run -d -p 9080:9080 -e RATINGS_SERVICE=http://ratings:8080 -e ENABLE_RATINGS="true" -e STAR_COLOR=red ghcr.io/pungpeee/bookinfo-reviews:latest

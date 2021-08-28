@@ -27,3 +27,8 @@ services:
       RATINGS_SERVICE: http://ratings:8080
       ENABLE_RATINGS: "true"
       STAR_COLOR: red
+      
+ networks:
+    default:
+        external:
+            name: bookinfo

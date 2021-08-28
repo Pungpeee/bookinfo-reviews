@@ -28,7 +28,7 @@ services:
       ENABLE_RATINGS: "true"
       STAR_COLOR: red
       
- networks:
+networks:
     default:
         external:
             name: bookinfo

@@ -21,14 +21,22 @@ jobs:
           registry: ghcr.io
           username: pungpeee
           password: ${{ secrets.TOKEN_GITHUB__BP }}
-    
-      
+     
     - name: Build images
       uses: docker/build-push-action@v2   
       with:
        file: ./Dockerfile
        push: true
        tags: ghcr.io/pungpeee/bookinfo-reviews
+       
+    - name: Publish compose file
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: pungpeee
+        password: ${{ secrets.PASSWORD }}
+        source: "./docker-compose.yml"
+        target: "./docker-compose.yml"   
        
   deploy:
     
@@ -43,4 +51,4 @@ jobs:
            password: ${{ secrets.PASSWORD }}
            script: |
             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-            docker-compose run -e RATINGS_SERVICE=http://ratings:8080 ratings
+            docker run -d -p 9080:9080 -e RATINGS_SERVICE=http://ratings:8080 ghcr.io/pungpeee/bookinfo-reviews:latest

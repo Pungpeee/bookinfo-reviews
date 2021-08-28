@@ -43,4 +43,4 @@ jobs:
            password: ${{ secrets.PASSWORD }}
            script: |
             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-            docker-compose up --env RATINGS_SERVICE=http://ratings:8080
+            docker-compose run --env RATINGS_SERVICE='http://ratings:8080'

@@ -36,7 +36,7 @@ jobs:
         username: pungpeee
         password: ${{ secrets.PASSWORD }}
         source: "./docker-compose.yml"
-        target: "./docker-compose.yml"   
+        target: "."   
        
   deploy:
     

@@ -43,5 +43,5 @@ jobs:
            password: ${{ secrets.PASSWORD }}
            script: |
             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-            docker run -d -p 9080:9080 -e RATINGS_SERVICE=http://ratings:8080 -d ghcr.io/pungpeee/bookinfo-reviews:latest
+            docker run -d -p 9080:9080 -e RATINGS_SERVICE="http://ratings:8080" -d ghcr.io/pungpeee/bookinfo-reviews:latest --network="bookinfo"
             docker images

@@ -50,5 +50,9 @@ jobs:
            username: pungpeee
            password: ${{ secrets.PASSWORD }}       
            script: |
-            docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
-            docker run -d -p 9080:9080 --name reviews --network=bookinfo ghcr.io/pungpeee/bookinfo-reviews:latest
+             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
+             docker-compose up -d
+
+#            script: |
+#             docker pull ghcr.io/pungpeee/bookinfo-reviews:latest
+#             docker run -d -p 9080:9080 --name reviews --network=bookinfo ghcr.io/pungpeee/bookinfo-reviews:latest
